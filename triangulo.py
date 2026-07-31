@@ -1,10 +1,3 @@
-"""Clasificador de triangulos segun la longitud de sus lados.
-
-Version mejorada de triangulo.py que separa la logica de negocio
-(clasificacion) de la entrada/salida por consola, para facilitar
-las pruebas unitarias y el mantenimiento del codigo.
-"""
-
 from __future__ import annotations
 
 EQUILATERO = "EL TRIANGULO ES EQUILATERO"
@@ -17,20 +10,10 @@ MENSAJE_VALOR_INVALIDO = "Valor invalido. Ingrese un numero."
 
 
 def es_triangulo_valido(a: float, b: float, c: float) -> bool:
-    """Indica si tres longitudes cumplen la desigualdad triangular.
-
-    La suma de dos lados cualquiera debe ser estrictamente mayor
-    que el tercer lado.
-    """
     return a + b > c and a + c > b and b + c > a
 
 
 def clasificar_triangulo(a: float, b: float, c: float) -> str:
-    """Clasifica un triangulo a partir de sus tres lados.
-
-    Devuelve uno de los mensajes: EQUILATERO, ISOSCELES, ESCALENO
-    o TRIANGULO_INVALIDO si los lados no forman un triangulo.
-    """
     if not es_triangulo_valido(a, b, c):
         return TRIANGULO_INVALIDO
 
@@ -42,10 +25,6 @@ def clasificar_triangulo(a: float, b: float, c: float) -> str:
 
 
 def pedir_lado(nombre: str) -> float:
-    """Solicita por consola la longitud de un lado y la valida.
-
-    Repite la solicitud hasta recibir un numero positivo y finito.
-    """
     while True:
         try:
             valor = float(input(f"INGRESE EL LADO {nombre} DEL TRIANGULO: "))
@@ -61,7 +40,6 @@ def pedir_lado(nombre: str) -> float:
 
 
 def main() -> None:
-    """Punto de entrada del programa de consola."""
     a = pedir_lado("A")
     b = pedir_lado("B")
     c = pedir_lado("C")
